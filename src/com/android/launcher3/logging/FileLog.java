@@ -11,6 +11,7 @@ import android.util.Pair;
 import androidx.annotation.VisibleForTesting;
 
 import com.android.launcher3.util.IOUtils;
+import io.github.pixee.security.BoundedLineReader;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -219,7 +220,7 @@ public final class FileLog {
                 out.println();
                 out.println("--- logfile: " + fileName + " ---");
                 String line;
-                while ((line = in.readLine()) != null) {
+                while ((line = BoundedLineReader.readLine(in, 5_000_000)) != null) {
                     out.println(line);
                 }
             } catch (Exception e) {
