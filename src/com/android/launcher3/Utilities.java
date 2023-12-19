@@ -167,10 +167,10 @@ public final class Utilities {
     public static boolean isDarkTheme(Context context) {
         PreferenceManager preferenceManager = PreferenceManager.getInstance(context);
         String themeChoice = preferenceManager.getLauncherTheme().get();
-        if (themeChoice.equals("light")) {
+        if ("light".equals(themeChoice)) {
             return false;
         }
-        if (themeChoice.equals("dark")) {
+        if ("dark".equals(themeChoice)) {
             return true;
         }
 
